@@ -6,6 +6,7 @@ import { Counter } from './components/Counter'
 import { useState } from 'react';
 import { Toggle } from './components/Toggle';
 import { Todo } from './components/Todo';
+import { Gallery } from './components/Gallery';
 
 
 function App() {
@@ -26,11 +27,13 @@ function App() {
 
         <Button color="success" outline={selected!="todo"} onClick={()=>setSelected("todo")}>Todo</Button>
 
+        <Button color="warning" outline={selected!="gallery"} onClick={()=>setSelected("gallery")}>Gallery</Button>
 
       </div>
     {selected == "counter" && <Counter/>}
     {selected == "toggle" && <Toggle/>}
     {selected == "todo" && <Todo/>}
+    {selected == "gallery" && <Gallery/>}
     </div>
   )
 }
