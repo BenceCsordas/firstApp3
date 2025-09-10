@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap'
+import { FaTrashAlt } from "react-icons/fa";
+import { todosData } from '../data';
+export const NewTodo = ({handleAdd}) => {
 
-export const NewTodo = () => {
 
+    const [desc, setDescr] = useState("")
 
-    const [descr, setDescr] = useState("")
-
-    console.log("Renderelődik a NewTodo: ",descr);
+    console.log("Renderelődik a NewTodo: ",desc);
     
     const handleSubmit=()=>{
-
+        handleAdd(desc)
+        setDescr("")
     }
+    
 
     return (
         
@@ -21,12 +24,13 @@ export const NewTodo = () => {
                     <Input
                         placeholder="new item"
                         type="text"
-                        value={descr}
+                        value={desc}
                         onChange={(e)=>setDescr(e.target.value)}
                     />
                 </FormGroup>
                 <FormGroup>
-                    <Button onClick={handleSubmit()}>Add</Button>    
+                    <Button onClick={handleSubmit} disabled={!desc}>Add</Button>    
+                    
                 </FormGroup>
             </Form>
         </div>

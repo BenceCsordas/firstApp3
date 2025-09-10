@@ -7,7 +7,8 @@ import { useState } from 'react';
 import { Toggle } from './components/Toggle';
 import { Todo } from './components/Todo';
 import { Gallery } from './components/Gallery';
-
+import { Frameworks } from './components/Frameworks';
+import { RandomQuotes } from './components/RandomQuotes';
 
 function App() {
   const [selected,setSelected] = useState(null)
@@ -34,6 +35,8 @@ function App() {
     {selected == "toggle" && <Toggle/>}
     {selected == "todo" && <Todo/>}
     {selected == "gallery" && <Gallery/>}
+    {!selected && <Frameworks/>}
+    {!selected && <RandomQuotes/>}
     </div>
   )
 }
